@@ -41,4 +41,21 @@ public class TestPayroll {
         e = PayrollDatabase.GetEmployee(empId);
         assertNull(e);
     }
+
+    public void testTimeCardTransaction() {
+        int empId = 2;
+        AddHourlyEmployee t = new AddHourlyEmployee(empId, "ill", "Home", 15.25);
+        t.Execute();
+        TimeCardTransaction tct = new TimeCardTransaction(20200229, 8.0, empId);
+        tct.Execute();
+        Employee e = PayrollDatabase.GetEmployee(empId);
+        assertNotNull(e);
+        PaymentClassification pc = e.GetClassification();
+        HourlyClassification hc = (HourlyClassification) pc;
+        assertNotNull(hc);
+        TimeCard tc = hc.GetTimeCard(20200229);
+        asssertNotNull(tc);
+        assertEquals(8.0, tc.GetHours());
+
+    }
 }
