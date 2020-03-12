@@ -2,7 +2,7 @@ package payroll_system.test;
 
 
 import org.junit.jupiter.api.Test;
-import payroll_system.main.PayrollDatabase;
+import payroll_system.main.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,5 +26,19 @@ public class TestPayroll {
         PaymentMethod pm = e.GetMethod();
         HoldMethod hm = (HoldMethod) pm;
         assertNotNull(hm);
+    }
+
+    public void testDeleteEmployee() {
+        int empId = 3;
+        AddCommisionedEmployee t = new AddComissionedEmployee(
+                empId, "Lance", "Home", 2500, 3.2
+        );
+        t.Execute();
+        Employee e = PayrollDatabase.GetEmployee(empId);
+        assertNotNull(e);
+        DeleteEmployeeTransaction dt = new DeleteEmployeeTransaction(empId);
+        dt.Execute();
+        e = PayrollDatabase.GetEmployee(empId);
+        assertNull(e);
     }
 }
