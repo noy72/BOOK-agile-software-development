@@ -1,6 +1,6 @@
 package payroll_system.main;
 
-public abstract class TimeCardTransaction implements Transaction {
+public class TimeCardTransaction implements Transaction {
     private long itsDate;
     private double itsHours;
     private int itsEmpId;
