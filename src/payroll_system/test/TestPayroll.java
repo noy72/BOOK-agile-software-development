@@ -79,4 +79,16 @@ public class TestPayroll {
         double sc = af.GetServiceCharge(20011031);
         assertEquals(12.95, sc, .001);
     }
+
+    @Test
+    public void testChangeNameTransaction() {
+        int empId = 2;
+        AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+        t.Execute();
+        ChangeNameTransaction cnt = new ChangeNameTransaction(empId, "Bob");
+        cnt.Execute();
+        Employee e = PayrollDatabase.GetEmployee(empId);
+        assertNotNull(e);
+        assertEquals("Bob", e.GetName());
+    }
 }
