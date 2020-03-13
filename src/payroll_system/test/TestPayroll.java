@@ -28,6 +28,7 @@ public class TestPayroll {
         assertNotNull(hm);
     }
 
+    @Test
     public void testDeleteEmployee() {
         int empId = 3;
         AddCommisionedEmployee t = new AddComissionedEmployee(
@@ -42,6 +43,7 @@ public class TestPayroll {
         assertNull(e);
     }
 
+    @Test
     public void testTimeCardTransaction() {
         int empId = 2;
         AddHourlyEmployee t = new AddHourlyEmployee(empId, "ill", "Home", 15.25);
@@ -57,5 +59,24 @@ public class TestPayroll {
         asssertNotNull(tc);
         assertEquals(8.0, tc.GetHours());
 
+    }
+
+    @Test
+    public void testAddServiceCharge() {
+        int empId = 2;
+        AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+        t.Execute();
+        TimeCardTransaction tct = new TimeCardTransaction(20011031, 8.0, empId);
+        tct.Execute();
+        Employee e = PayrollDatabase.GetEmployee(empId);
+        assertNotNull(e);
+        Affiliation af = new UnionAffiliation(12.5);
+        e.SetAffiliation(af);
+        int memberId = 86;
+        PayrollDatabase.AddUnionMember(memberId, e);
+        ServiceChargeTransaction sct = new ServiceChargeTransaction(memberId, 20011031, 12.95);
+        sct.Execute();
+        double sc = af.GetServiceCharge(20011031);
+        assertEquals(12.95, sc, .001);
     }
 }
