@@ -8,7 +8,7 @@ public class HourlyClassification extends PaymentClassification {
 
     public HourlyClassification(double itsHourlyRate) {
         super();
-        timeCards = new HashMap<Long, TimeCard>();
+        timeCards = new HashMap<>();
     }
 
     public void AddTimeCard(TimeCard timeCard) {

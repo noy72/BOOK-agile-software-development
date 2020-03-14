@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PayrollDatabase {
-    private static Map<Integer, Employee> itsEmployees = new HashMap<Integer, Employee>();
+    private static Map<Integer, Employee> itsEmployees = new HashMap<>();
 
     public static void AddEmployee(int empId, Employee e) {
         itsEmployees.put(empId, e);
