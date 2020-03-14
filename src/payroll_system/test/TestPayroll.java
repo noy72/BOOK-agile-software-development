@@ -28,6 +28,26 @@ public class TestPayroll {
         assertNotNull(hm);
     }
 
+    @Test
+    public void testAddHourlyEmployee() {
+        int empId = 1;
+        AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bob", "Home", 1000.00);
+        t.Execute();
+        Employee e = PayrollDatabase.GetEmployee(empId);
+        assertNotNull(e);
+        assertEquals("Bob", e.GetName());
+
+        PaymentClassification pc = e.GetClassification();
+        HourlyClassification sc = (HourlyClassification) pc;
+        assertNotNull(sc);
+        PaymentSchedule ps = e.GetSchedule();
+        WeeklySchedule ms = (WeeklySchedule) ps;
+        assertNotNull(ms);
+        PaymentMethod pm = e.GetMethod();
+        HoldMethod hm = (HoldMethod) pm;
+        assertNotNull(hm);
+    }
+
     /*
     @Test
     public void testDeleteEmployee() {
