@@ -14,15 +14,15 @@ public abstract class AddEmployeeTransaction implements Transaction {
     public void Execute() {
         PaymentClassification pc = GetClassification();
         PaymentSchedule ps = GetSchedule();
-        PaymentMethod mp = new HoldMethod();
-        Employee e = new Empoyee(itsEmpId, itsName, itsAddress);
+        PaymentMethod pm = new HoldMethod();
+        Employee e = new Employee(itsEmpId, itsName, itsAddress);
         e.SetClassification(pc);
         e.SetSchedule(ps);
         e.SetMethod(pm);
         PayrollDatabase.AddEmployee(itsEmpId, e);
     }
 
-    abstract PaymenSchedule GetSchedule();
+    abstract PaymentSchedule GetSchedule();
 
     abstract PaymentClassification GetClassification();
 }
