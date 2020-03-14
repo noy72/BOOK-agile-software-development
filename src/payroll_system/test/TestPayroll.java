@@ -48,6 +48,26 @@ public class TestPayroll {
         assertNotNull(hm);
     }
 
+    @Test
+    public void testAddCommissionedEmployee() {
+        int empId = 1;
+        AddCommissionedEmployee t = new AddCommissionedEmployee(empId, "Bob", "Home", 1000.00, 1200.00);
+        t.Execute();
+        Employee e = PayrollDatabase.GetEmployee(empId);
+        assertNotNull(e);
+        assertEquals("Bob", e.GetName());
+
+        PaymentClassification pc = e.GetClassification();
+        CommissionedClassification sc = (CommissionedClassification) pc;
+        assertNotNull(sc);
+        PaymentSchedule ps = e.GetSchedule();
+        BiweeklySchedule ms = (BiweeklySchedule) ps;
+        assertNotNull(ms);
+        PaymentMethod pm = e.GetMethod();
+        HoldMethod hm = (HoldMethod) pm;
+        assertNotNull(hm);
+    }
+
     /*
     @Test
     public void testDeleteEmployee() {
