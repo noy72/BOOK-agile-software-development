@@ -1,4 +1,6 @@
-package payroll_system.main;
+package payroll_system.main.classification;
+
+import payroll_system.main.TimeCard;
 
 import java.util.HashMap;
 import java.util.Map;

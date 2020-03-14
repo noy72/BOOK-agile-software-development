@@ -1,4 +1,10 @@
-package payroll_system.main;
+package payroll_system.main.transaction;
+
+import payroll_system.main.PayrollDatabase;
+import payroll_system.main.TimeCard;
+import payroll_system.main.classification.HourlyClassification;
+import payroll_system.main.classification.PaymentClassification;
+import payroll_system.main.Employee;
 
 public class TimeCardTransaction implements Transaction {
     private long itsDate;

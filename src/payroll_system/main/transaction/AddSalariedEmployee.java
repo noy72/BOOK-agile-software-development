@@ -1,4 +1,9 @@
-package payroll_system.main;
+package payroll_system.main.transaction;
+
+import payroll_system.main.classification.PaymentClassification;
+import payroll_system.main.classification.SalariedClassification;
+import payroll_system.main.schedule.MonthlySchedule;
+import payroll_system.main.schedule.PaymentSchedule;
 
 public class AddSalariedEmployee extends AddEmployeeTransaction {
     private double itsSalary;

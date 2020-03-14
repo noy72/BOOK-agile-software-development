@@ -1,6 +1,4 @@
-package payroll_system.main;
-
-import payroll_system.main.PaymentClassification;
+package payroll_system.main.classification;
 
 public class SalariedClassification extends PaymentClassification {
     double itsSalary;

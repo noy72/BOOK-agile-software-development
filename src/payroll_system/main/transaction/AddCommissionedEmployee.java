@@ -1,4 +1,9 @@
-package payroll_system.main;
+package payroll_system.main.transaction;
+
+import payroll_system.main.classification.CommissionedClassification;
+import payroll_system.main.classification.PaymentClassification;
+import payroll_system.main.schedule.BiweeklySchedule;
+import payroll_system.main.schedule.PaymentSchedule;
 
 public class AddCommissionedEmployee extends AddEmployeeTransaction {
     private double itsSalary;

@@ -1,4 +1,4 @@
-package payroll_system.main;
+package payroll_system.affiliation;
 
 import java.util.HashMap;
 import java.util.Map;

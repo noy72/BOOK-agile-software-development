@@ -1,5 +1,10 @@
 package payroll_system.main;
 
+import payroll_system.affiliation.Affiliation;
+import payroll_system.main.classification.PaymentClassification;
+import payroll_system.main.method.PaymentMethod;
+import payroll_system.main.schedule.PaymentSchedule;
+
 public class Employee {
     private int itsEmpId;
     private String itsName;

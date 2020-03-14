@@ -1,4 +1,6 @@
-package payroll_system.main;
+package payroll_system.main.transaction;
+
+import payroll_system.main.PayrollDatabase;
 
 public class DeleteEmployeeTransaction implements Transaction {
     private int itsEmpId;
