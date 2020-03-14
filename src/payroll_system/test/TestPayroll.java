@@ -68,11 +68,10 @@ public class TestPayroll {
         assertNotNull(hm);
     }
 
-    /*
     @Test
     public void testDeleteEmployee() {
         int empId = 3;
-        AddCommisionedEmployee t = new AddComissionedEmployee(
+        AddCommissionedEmployee t = new AddCommissionedEmployee(
                 empId, "Lance", "Home", 2500, 3.2
         );
         t.Execute();
@@ -84,6 +83,7 @@ public class TestPayroll {
         assertNull(e);
     }
 
+    /*
     @Test
     public void testTimeCardTransaction() {
         int empId = 2;
