@@ -83,7 +83,6 @@ public class TestPayroll {
         assertNull(e);
     }
 
-    /*
     @Test
     public void testTimeCardTransaction() {
         int empId = 2;
@@ -97,11 +96,12 @@ public class TestPayroll {
         HourlyClassification hc = (HourlyClassification) pc;
         assertNotNull(hc);
         TimeCard tc = hc.GetTimeCard(20200229);
-        asssertNotNull(tc);
+        assertNotNull(tc);
         assertEquals(8.0, tc.GetHours());
 
     }
 
+    /*
     @Test
     public void testAddServiceCharge() {
         int empId = 2;
