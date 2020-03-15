@@ -137,4 +137,16 @@ public class TestPayroll {
         assertNotNull(e);
         assertEquals("Bob", e.GetName());
     }
+
+    @Test
+    public void testChangeAddressTransaction() {
+        int empId = 2;
+        AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Homee", 15.25);
+        t.Execute();
+        ChangeAddressTransaction cnt = new ChangeAddressTransaction(empId, "Home");
+        cnt.Execute();
+        Employee e = PayrollDatabase.GetEmployee(empId);
+        assertNotNull(e);
+        assertEquals("Home", e.GetAddress());
+    }
 }

@@ -24,6 +24,10 @@ public class Employee {
         return itsName;
     }
 
+    public String GetAddress() {
+        return itsAddress;
+    }
+
     public PaymentClassification GetClassification() {
         return itsPc;
     }
@@ -42,6 +46,10 @@ public class Employee {
 
     public void SetName(String name) {
         itsName = name;
+    }
+
+    public void SetAddress(String address) {
+        itsAddress = address;
     }
 
     public void SetClassification(PaymentClassification pc) {
