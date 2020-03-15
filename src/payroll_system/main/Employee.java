@@ -40,6 +40,10 @@ public class Employee {
         return itsAf;
     }
 
+    public void SetName(String name) {
+        itsName = name;
+    }
+
     public void SetClassification(PaymentClassification pc) {
         itsPc = pc;
     }
@@ -55,4 +59,5 @@ public class Employee {
     public void SetAffiliation(Affiliation af) {
         itsAf = af;
     }
+
 }

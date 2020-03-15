@@ -126,7 +126,6 @@ public class TestPayroll {
         assertEquals(12.95, sc, .001);
     }
 
-    /*
     @Test
     public void testChangeNameTransaction() {
         int empId = 2;
@@ -138,5 +137,4 @@ public class TestPayroll {
         assertNotNull(e);
         assertEquals("Bob", e.GetName());
     }
-     */
 }
