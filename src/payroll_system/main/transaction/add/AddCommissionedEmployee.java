@@ -1,4 +1,4 @@
-package payroll_system.main.transaction;
+package payroll_system.main.transaction.add;
 
 import payroll_system.main.classification.CommissionedClassification;
 import payroll_system.main.classification.PaymentClassification;

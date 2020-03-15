@@ -1,4 +1,4 @@
-package payroll_system.main.transaction;
+package payroll_system.main.transaction.add;
 
 import payroll_system.main.*;
 import payroll_system.main.classification.PaymentClassification;
@@ -6,6 +6,7 @@ import payroll_system.main.Employee;
 import payroll_system.main.method.HoldMethod;
 import payroll_system.main.method.PaymentMethod;
 import payroll_system.main.schedule.PaymentSchedule;
+import payroll_system.main.transaction.Transaction;
 
 public abstract class AddEmployeeTransaction implements Transaction {
     private int itsEmpId;

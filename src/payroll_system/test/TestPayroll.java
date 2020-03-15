@@ -9,6 +9,12 @@ import payroll_system.main.classification.*;
 import payroll_system.main.method.*;
 import payroll_system.main.schedule.*;
 import payroll_system.main.transaction.*;
+import payroll_system.main.transaction.add.AddCommissionedEmployee;
+import payroll_system.main.transaction.add.AddHourlyEmployee;
+import payroll_system.main.transaction.add.AddSalariedEmployee;
+import payroll_system.main.transaction.change.ChangeAddressTransaction;
+import payroll_system.main.transaction.change.ChangeHourlyTransaction;
+import payroll_system.main.transaction.change.ChangeNameTransaction;
 
 import static org.junit.jupiter.api.Assertions.*;
 

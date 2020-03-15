@@ -1,4 +1,4 @@
-package payroll_system.main.transaction;
+package payroll_system.main.transaction.change;
 
 
 import payroll_system.main.classification.HourlyClassification;
