@@ -6,4 +6,8 @@ public class SalariedClassification extends PaymentClassification {
     public SalariedClassification(double salary) {
         itsSalary = salary;
     }
+
+    public double GetSalary(){
+        return itsSalary;
+    }
 }

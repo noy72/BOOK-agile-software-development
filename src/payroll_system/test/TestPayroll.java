@@ -2,19 +2,14 @@ package payroll_system.test;
 
 
 import org.junit.jupiter.api.Test;
-import payroll_system.affiliation.Affiliation;
-import payroll_system.affiliation.UnionAffiliation;
+import payroll_system.affiliation.*;
 import payroll_system.main.*;
 import payroll_system.main.classification.*;
 import payroll_system.main.method.*;
 import payroll_system.main.schedule.*;
 import payroll_system.main.transaction.*;
-import payroll_system.main.transaction.add.AddCommissionedEmployee;
-import payroll_system.main.transaction.add.AddHourlyEmployee;
-import payroll_system.main.transaction.add.AddSalariedEmployee;
-import payroll_system.main.transaction.change.ChangeAddressTransaction;
-import payroll_system.main.transaction.change.ChangeHourlyTransaction;
-import payroll_system.main.transaction.change.ChangeNameTransaction;
+import payroll_system.main.transaction.add.*;
+import payroll_system.main.transaction.change.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -173,5 +168,24 @@ public class TestPayroll {
         PaymentSchedule ps = e.GetSchedule();
         WeeklySchedule ws = (WeeklySchedule) ps;
         assertNotNull(ws);
+    }
+
+    @Test
+    public void testChangeSalariedTransaction() {
+        int empId = 3;
+        AddSalariedEmployee t = new AddSalariedEmployee(empId, "Lance", "Home", 2500);
+        t.Execute();
+        ChangeSalariedTransaction cst = new ChangeSalariedTransaction(empId, 2600);
+        cst.Execute();
+        Employee e = PayrollDatabase.GetEmployee(empId);
+        assertNotNull(e);
+        PaymentClassification pc = e.GetClassification();
+        assertNotNull(pc);
+        SalariedClassification sc = (SalariedClassification) pc;
+        assertNotNull(sc);
+        assertEquals(2600, sc.GetSalary());
+        PaymentSchedule ps = e.GetSchedule();
+        MonthlySchedule ms = (MonthlySchedule) ps;
+        assertNotNull(ms);
     }
 }
