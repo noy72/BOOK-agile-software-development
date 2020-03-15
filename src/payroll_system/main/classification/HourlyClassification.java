@@ -6,10 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HourlyClassification extends PaymentClassification {
+    double itsRate;
     Map<Long, TimeCard> timeCards;
 
-    public HourlyClassification(double itsHourlyRate) {
+    public HourlyClassification(double rate) {
         super();
+        itsRate = rate;
         timeCards = new HashMap<>();
     }
 
@@ -19,5 +21,9 @@ public class HourlyClassification extends PaymentClassification {
 
     public TimeCard GetTimeCard(long date) {
         return timeCards.get(date);
+    }
+
+    public double GetRate() {
+        return itsRate;
     }
 }
