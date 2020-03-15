@@ -188,4 +188,24 @@ public class TestPayroll {
         MonthlySchedule ms = (MonthlySchedule) ps;
         assertNotNull(ms);
     }
+
+    @Test
+    public void testChangeCommissionedTransaction() {
+        int empId = 3;
+        AddCommissionedEmployee t = new AddCommissionedEmployee(empId, "Lance", "Home", 2500, 2.8);
+        t.Execute();
+        ChangeCommissionedTransaction cct = new ChangeCommissionedTransaction(empId, 2600, 2.4);
+        cct.Execute();
+        Employee e = PayrollDatabase.GetEmployee(empId);
+        assertNotNull(e);
+        PaymentClassification pc = e.GetClassification();
+        assertNotNull(pc);
+        CommissionedClassification cc = (CommissionedClassification) pc;
+        assertNotNull(cc);
+        assertEquals(2600, cc.GetSalary());
+        assertEquals(2.4, cc.GetRate());
+        PaymentSchedule ps = e.GetSchedule();
+        BiweeklySchedule bws = (BiweeklySchedule) ps;
+        assertNotNull(bws);
+    }
 }
