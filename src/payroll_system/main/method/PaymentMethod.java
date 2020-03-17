@@ -1,4 +1,7 @@
 package payroll_system.main.method;
 
-public class PaymentMethod {
+import payroll_system.main.Paycheck;
+
+public interface PaymentMethod {
+    void Pay(Paycheck pc);
 }

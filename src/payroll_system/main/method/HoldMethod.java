@@ -1,4 +1,10 @@
 package payroll_system.main.method;
 
-public class HoldMethod extends PaymentMethod {
+import payroll_system.main.Paycheck;
+
+public class HoldMethod implements PaymentMethod {
+    @Override
+    public void Pay(Paycheck pc) {
+
+    }
 }

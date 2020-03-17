@@ -1,5 +1,7 @@
 package payroll_system.affiliation;
 
+import payroll_system.main.Paycheck;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +20,11 @@ public class UnionAffiliation implements Affiliation {
         itsCharge.put(date, amount);
     }
 
+    @Override
+    public double CalculateDeductions(Paycheck pc) {
+        return 0;
+    }
+
     public double GetServiceCharge(long date) {
         return itsCharge.get(date);
     }
@@ -29,4 +36,5 @@ public class UnionAffiliation implements Affiliation {
     public double GetDues() {
         return itsDues;
     }
+
 }

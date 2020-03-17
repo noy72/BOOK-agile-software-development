@@ -1,9 +1,12 @@
 package payroll_system.main;
 
 import payroll_system.affiliation.Affiliation;
+import payroll_system.affiliation.NoAffiliation;
 import payroll_system.main.classification.PaymentClassification;
 import payroll_system.main.method.PaymentMethod;
 import payroll_system.main.schedule.PaymentSchedule;
+
+import java.util.Calendar;
 
 public class Employee {
     private int itsEmpId;
@@ -18,6 +21,7 @@ public class Employee {
         itsEmpId = empId;
         itsName = name;
         itsAddress = address;
+        itsAf = new NoAffiliation();
     }
 
     public String GetName() {
@@ -68,4 +72,21 @@ public class Employee {
         itsAf = af;
     }
 
+    public void Payday(Paycheck pc) {
+        double grossPay = itsPc.CalculatePay(pc);
+        double deductions = itsAf.CalculateDeductions(pc);
+        double netPay = grossPay - deductions;
+        pc.SetGrossPay(grossPay);
+        pc.SetDeductions(deductions);
+        pc.SetNetPay(netPay);
+        itsPm.Pay(pc);
+    }
+
+    public boolean IsPayDate(Calendar payDate) {
+        return itsPs.IsPayDate(payDate);
+    }
+
+    public Calendar GetPayPeriodStartDate(Calendar payDate) {
+        return payDate;
+    }
 }

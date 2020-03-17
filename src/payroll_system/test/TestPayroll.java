@@ -11,6 +11,9 @@ import payroll_system.main.transaction.*;
 import payroll_system.main.transaction.add.*;
 import payroll_system.main.transaction.change.*;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -227,5 +230,32 @@ public class TestPayroll {
         Employee member = PayrollDatabase.GetUnionMember(memberId);
         assertNotNull(member);
         assertEquals(e, member);
+    }
+
+    public void ValidatePaycheck(PaydayTransaction pt, int empId, Calendar payDate, double salary) {
+
+    }
+
+    @Test
+    public void testPaySingleSalariedEmployee() {
+        int empId = 1;
+        AddSalariedEmployee t = new AddSalariedEmployee(empId, "Bob", "Home", 1000.0);
+        t.Execute();
+        Calendar payDate = new GregorianCalendar(2001, Calendar.NOVEMBER, 30);
+        PaydayTransaction pt = new PaydayTransaction(payDate);
+        pt.Execute();
+        ValidatePaycheck(pt, empId, payDate, 1000.0);
+    }
+
+    @Test
+    public void testPaySingleSalariedEmployeeOnWrongDate() {
+        int empId = 1;
+        AddSalariedEmployee t = new AddSalariedEmployee(empId, "Bob", "Home", 1000.0);
+        t.Execute();
+        Calendar payDate = new GregorianCalendar(2001, Calendar.NOVEMBER, 29);
+        PaydayTransaction pt = new PaydayTransaction(payDate);
+        pt.Execute();
+        Paycheck pc = pt.GetPaycheck(empId);
+        assertNull(pc);
     }
 }
