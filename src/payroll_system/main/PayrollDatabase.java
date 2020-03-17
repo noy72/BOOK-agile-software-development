@@ -15,8 +15,8 @@ public class PayrollDatabase {
         return itsEmployees.get(empId);
     }
 
-    public static void DeleteEmployee(int itsEmpId) {
-        itsEmployees.remove(itsEmpId);
+    public static void DeleteEmployee(int empId) {
+        itsEmployees.remove(empId);
     }
 
     public static void Clear() {
@@ -29,5 +29,9 @@ public class PayrollDatabase {
 
     public static Employee GetUnionMember(int memberId) {
         return itsUnionMember.get(memberId);
+    }
+
+    public static void RemoveUnionMember(int memberId) {
+        itsUnionMember.remove(memberId);
     }
 }

@@ -117,13 +117,13 @@ public class TestPayroll {
         tct.Execute();
         Employee e = PayrollDatabase.GetEmployee(empId);
         assertNotNull(e);
-        Affiliation af = new UnionAffiliation(12.5);
-        e.SetAffiliation(af);
+        UnionAffiliation uf = new UnionAffiliation(4, 12.5);
+        e.SetAffiliation(uf);
         int memberId = 86;
         PayrollDatabase.AddUnionMember(memberId, e);
         ServiceChargeTransaction sct = new ServiceChargeTransaction(memberId, 20011031, 12.95);
         sct.Execute();
-        double sc = af.GetServiceCharge(20011031);
+        double sc = uf.GetServiceCharge(20011031);
         assertEquals(12.95, sc, .001);
     }
 
@@ -207,5 +207,25 @@ public class TestPayroll {
         PaymentSchedule ps = e.GetSchedule();
         BiweeklySchedule bws = (BiweeklySchedule) ps;
         assertNotNull(bws);
+    }
+
+    @Test
+    public void testChangeMemberTransaction() {
+        int empId = 2;
+        int memberId = 7734;
+        AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
+        t.Execute();
+        ChangeMemberTransaction cmt = new ChangeMemberTransaction(empId, memberId, 99.42);
+        cmt.Execute();
+        Employee e = PayrollDatabase.GetEmployee(empId);
+        assertNotNull(e);
+        Affiliation af = e.GetAffiliation();
+        assertNotNull(af);
+        UnionAffiliation uf = (UnionAffiliation) af;
+        assertNotNull(uf);
+        assertEquals(99.42, uf.GetDues());
+        Employee member = PayrollDatabase.GetUnionMember(memberId);
+        assertNotNull(member);
+        assertEquals(e, member);
     }
 }
