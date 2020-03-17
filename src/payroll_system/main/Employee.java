@@ -1,7 +1,7 @@
 package payroll_system.main;
 
-import payroll_system.affiliation.Affiliation;
-import payroll_system.affiliation.NoAffiliation;
+import payroll_system.main.affiliation.Affiliation;
+import payroll_system.main.affiliation.NoAffiliation;
 import payroll_system.main.classification.PaymentClassification;
 import payroll_system.main.method.PaymentMethod;
 import payroll_system.main.schedule.PaymentSchedule;

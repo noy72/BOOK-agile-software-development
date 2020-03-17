@@ -1,6 +1,6 @@
 package payroll_system.main.transaction.change;
 
-import payroll_system.affiliation.Affiliation;
+import payroll_system.main.affiliation.Affiliation;
 import payroll_system.main.Employee;
 
 public abstract class ChangeAffiliationTransaction extends ChangeEmployeeTransaction {

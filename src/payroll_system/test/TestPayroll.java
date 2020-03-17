@@ -2,7 +2,7 @@ package payroll_system.test;
 
 
 import org.junit.jupiter.api.Test;
-import payroll_system.affiliation.*;
+import payroll_system.main.affiliation.*;
 import payroll_system.main.*;
 import payroll_system.main.classification.*;
 import payroll_system.main.method.*;

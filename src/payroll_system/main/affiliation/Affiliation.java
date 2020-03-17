@@ -1,4 +1,4 @@
-package payroll_system.affiliation;
+package payroll_system.main.affiliation;
 
 import payroll_system.main.Paycheck;
 

@@ -1,7 +1,7 @@
 package payroll_system.main.transaction;
 
-import payroll_system.affiliation.Affiliation;
-import payroll_system.affiliation.UnionAffiliation;
+import payroll_system.main.affiliation.Affiliation;
+import payroll_system.main.affiliation.UnionAffiliation;
 import payroll_system.main.PayrollDatabase;
 import payroll_system.main.Employee;
 
